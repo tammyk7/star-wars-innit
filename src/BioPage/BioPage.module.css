@@ -1,0 +1,55 @@
+.bio-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.bio {
+  width: 50%;
+  height: 40%;
+  background-color: #c5baaf;
+  border-radius: 20px;
+  color: #0f1a20;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  gap: 20px;
+  padding: 25px 25px 0;
+  animation: fadeIn ease 2s forwards;
+  opacity: 0;
+}
+
+.bio > div {
+  text-transform: capitalize;
+  width: fit-content;
+  font-size: 30px;
+}
+
+.character-name {
+  color: var(--light--theme--text);
+  animation: fadeIn ease 2s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+.bio-container > .loading-box {
+  border-radius: 16px;
+}
+
+.dark .character-name {
+  background-color: var(--dark--theme--bg);
+  color: var(--dark--theme--text--two);
+}

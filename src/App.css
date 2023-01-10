@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+@import "./assets/variables.css";
+* {
+  transition: color ease 1s, background-color ease 1s;
+}
+#root {
+  font-family: "Space Mono", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #0f1a20;
+  background-color: #424b54;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 183px 1fr;
+  grid-template-columns: 1fr;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: var(--light--theme--text);
+  text-decoration: none;
+}
+
+.title:hover {
+  cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.search-bar {
+  height: 35px;
+  padding-left: 12px;
+  background-color: aliceblue;
+  border: none;
+  border-radius: 16px 0 0 16px;
+}
+
+.search-bar:focus-visible {
+  outline: 0;
+}
+
+.search-button {
+  border-radius: 0 16px 16px 0;
+  height: auto;
+  border: none;
+  color: var(--light--theme--text);
+}
+
+.MuiSkeleton-rounded {
+  border-radius: 16px;
+}
+
+.dark {
+  background-color: var(--dark--theme--bg);
+  color: var(--dark--theme--text--two);
+}
+
+.dark * {
+  color: var(--dark--theme--text--two);
+}
+
+.icon {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin-top: 34px;
+  margin-bottom: 34px;
+  color: #558b6e;
+  cursor: pointer;
+}
