@@ -6,7 +6,12 @@ enum Themes {
   DARK = "dark",
 }
 
-export const ThemeContext = React.createContext(Themes.DARK)
+type ThemeValue = [Themes, () => void]
+
+export const ThemeContext = React.createContext<ThemeValue>([
+  Themes.DARK,
+  () => {},
+])
 
 export default function ThemeProvider({
   children,

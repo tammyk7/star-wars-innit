@@ -9,9 +9,10 @@ import { UseThemeContext } from "../Providers/ThemeProvider"
 
 export default function BioPage() {
   const { id } = useParams()
-  const { data, loading, error } = UseFetch(
-    `https://swapi.dev/api/people/${id}`
-  )
+  const [data, loading, error] = UseFetch(`https://swapi.dev/api/people/${id}`)
+  const [world] = UseFetch(`https://swapi.dev/api/planets/${id}`)
+  const [species] = UseFetch(`https://swapi.dev/api/species/${id}`)
+
   const { birth_year, gender, height, eye_color, mass, name } = data || {}
   const [theme] = useContext(UseThemeContext())
   return (
@@ -25,6 +26,9 @@ export default function BioPage() {
             <div>Height: {height}cm</div>
             <div>Eye Colour: {eye_color}</div>
             <div>Mass: {mass} kg</div>
+            {/* <div>Home World: {world?.name}</div> */}
+            {/* <div>Species: {species?.name}</div> */}
+            {/* <div>Language: {species?.language}</div> */}
           </div>
         </>
       ) : (

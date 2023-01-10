@@ -17,20 +17,23 @@ export default function HomePage() {
   const [page, setPage] = useState(1)
   const navigate = useNavigate()
   const [theme] = useContext(UseThemeContext())
-  const { data, loading, error } = UseFetch(
+  const [data, loading, error] = UseFetch(
     "https://swapi.dev/api/people/?page=" + page,
     page
   )
   const r = /.*?([\d]+)\/$/
 
-  const clickHandler = (e: Event) => {
+  interface MouseEventTarget {
+    target: { innerText: String }
+  }
+
+  const clickHandler = (e: MouseEventTarget) => {
     const isNextBtn = e.target.innerText.includes("Next")
     if (isNextBtn && page <= data.count / 10) {
       setPage((prevPage) => prevPage + 1)
     } else if (page > 1 && !isNextBtn) {
       setPage((prevPage) => prevPage - 1)
     }
-    console.log(Math.ceil(data.count / 10))
   }
 
   return (
@@ -48,9 +51,10 @@ export default function HomePage() {
               </div>
             ))}
             <div className={`${styles["page-button"]} ${styles[theme]}`}>
-              <span onClick={clickHandler}>Prev Page</span>
-              <span onClick={clickHandler}>Next Page</span>
+              <span onClick={() => clickHandler}>Prev Page</span>
+              <span onClick={() => clickHandler}>Next Page</span>
             </div>
+            {/* fix typesvcript correctly */}
           </>
         ) : (
           <>
