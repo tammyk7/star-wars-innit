@@ -23,12 +23,8 @@ export default function HomePage() {
   )
   const r = /.*?([\d]+)\/$/
 
-  interface MouseEventTarget {
-    target: { innerText: String }
-  }
-
-  const clickHandler = (e: MouseEventTarget) => {
-    const isNextBtn = e.target.innerText.includes("Next")
+  const clickHandler = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    const isNextBtn = (e.target as HTMLElement).innerText.includes("Next")
     if (isNextBtn && page <= data.count / 10) {
       setPage((prevPage) => prevPage + 1)
     } else if (page > 1 && !isNextBtn) {
@@ -51,10 +47,16 @@ export default function HomePage() {
               </div>
             ))}
             <div className={`${styles["page-button"]} ${styles[theme]}`}>
-              <span onClick={() => clickHandler}>Prev Page</span>
-              <span onClick={() => clickHandler}>Next Page</span>
+              <span onClick={(e) => clickHandler(e)}>Prev Page</span>
+              {Array(9)
+                .fill(0)
+                .map((el, i) => (
+                  <span key={i} onClick={() => setPage(i + 1)}>
+                    {i + 1}
+                  </span>
+                ))}
+              <span onClick={(e) => clickHandler(e)}>Next Page</span>
             </div>
-            {/* fix typesvcript correctly */}
           </>
         ) : (
           <>
