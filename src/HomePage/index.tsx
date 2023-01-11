@@ -1,17 +1,10 @@
-import React, {
-  MouseEventHandler,
-  SyntheticEvent,
-  useContext,
-  useEffect,
-  useState,
-} from "react"
+import { Skeleton } from "@mui/material"
+import React, { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import UseFetch from "../Hooks/UseFetch"
+import { UseThemeContext } from "../Providers/ThemeProvider"
 import { Character } from "../Types"
 import styles from "./HomePage.module.css"
-import { Box, Skeleton } from "@mui/material"
-import { ThemeContext, useTheme } from "@emotion/react"
-import { UseThemeContext } from "../Providers/ThemeProvider"
 
 export default function HomePage() {
   const [page, setPage] = useState(1)
@@ -21,14 +14,11 @@ export default function HomePage() {
     "https://swapi.dev/api/people/?page=" + page,
     page
   )
+
   const r = /.*?([\d]+)\/$/
 
-  interface MouseEventTarget {
-    target: { innerText: String }
-  }
-
-  const clickHandler = (e: MouseEventTarget) => {
-    const isNextBtn = e.target.innerText.includes("Next")
+  const clickHandler = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    const isNextBtn = (e.target as HTMLElement).innerText.includes("Next")
     if (isNextBtn && page <= data.count / 10) {
       setPage((prevPage) => prevPage + 1)
     } else if (page > 1 && !isNextBtn) {
@@ -50,11 +40,6 @@ export default function HomePage() {
                 {name}
               </div>
             ))}
-            <div className={`${styles["page-button"]} ${styles[theme]}`}>
-              <span onClick={() => clickHandler}>Prev Page</span>
-              <span onClick={() => clickHandler}>Next Page</span>
-            </div>
-            {/* fix typesvcript correctly */}
           </>
         ) : (
           <>
@@ -71,6 +56,17 @@ export default function HomePage() {
               ))}
           </>
         )}
+      </div>
+      <div className={`${styles["page-button"]} ${styles[theme]}`}>
+        <span onClick={(e) => clickHandler(e)}>Prev Page</span>
+        {Array(9)
+          .fill(0)
+          .map((el, i) => (
+            <span key={i} onClick={() => setPage(i + 1)}>
+              {i + 1}
+            </span>
+          ))}
+        <span onClick={(e) => clickHandler(e)}>Next Page</span>
       </div>
     </div>
   )

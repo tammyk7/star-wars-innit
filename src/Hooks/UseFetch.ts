@@ -9,11 +9,12 @@ export default function UseFetch(url: string, ...dependencies: any[]) {
     setLoading(true)
     const grabData = async () => {
       try {
-        const response = await fetch(url)
-        let data = await response.json()
-        setData(data)
-        setError(null)
-        console.log(data)
+        if (url) {
+          const response = await fetch(url)
+          let data = await response.json()
+          setData(data)
+          setError(null)
+        }
       } catch (err: any) {
         setError(err)
         setData(null)

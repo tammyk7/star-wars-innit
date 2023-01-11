@@ -1,25 +1,21 @@
 .bio-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+
 }
 
 .bio {
   width: 50%;
-  height: 40%;
   background-color: #c5baaf;
   border-radius: 20px;
-  color: #0f1a20;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: start;
   gap: 20px;
-  padding: 25px 25px 0;
+  padding: 30px;
   animation: fadeIn ease 2s forwards;
   opacity: 0;
 }
