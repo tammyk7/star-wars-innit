@@ -1,13 +1,13 @@
+import { Alert, Snackbar } from "@mui/material"
+import { useContext, useState } from "react"
+import { GiLightSabers, GiStarfighter } from "react-icons/gi"
+import { RiUserHeartFill } from "react-icons/ri"
 import { Link, Route, Routes, useNavigate } from "react-router-dom"
 import "./App.css"
 import BioPage from "./BioPage"
 import HomePage from "./HomePage"
-import { useContext, useState } from "react"
-import { UseThemeContext } from "./Providers/ThemeProvider"
-import { GiLightSabers, GiStarfighter } from "react-icons/gi"
-import { RiUserHeartFill } from "react-icons/ri"
-import { Alert, Snackbar } from "@mui/material"
 import UseFetch from "./Hooks/UseFetch"
+import { UseThemeContext } from "./Providers/ThemeProvider"
 
 function App() {
   const [theme, toggleTheme] = useContext(UseThemeContext())
@@ -66,7 +66,7 @@ function App() {
             {characterNotFound && (
               <Snackbar
                 open={characterNotFound}
-                autoHideDuration={6000}
+                autoHideDuration={4000}
                 onClose={() => setCharacterNotFound(false)}
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
               >
@@ -77,7 +77,8 @@ function App() {
                     height: "120px",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "23px",
+                    fontSize: "20px",
+                    textAlign: "center",
                     backgroundColor: "#c5baaf",
                     borderRadius: "12px",
                   }}

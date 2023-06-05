@@ -4,12 +4,12 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-
 }
 
 .bio {
   width: 50%;
   background-color: #c5baaf;
+  color: var(--dark--theme--text);
   border-radius: 20px;
   display: flex;
   flex-wrap: wrap;

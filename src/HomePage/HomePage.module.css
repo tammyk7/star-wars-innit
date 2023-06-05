@@ -9,6 +9,7 @@
 
 .character {
   background-color: #c5baaf;
+  color: var(--dark--theme--text);
   height: 300px;
   width: 300px;
   display: flex;

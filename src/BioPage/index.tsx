@@ -11,7 +11,7 @@ export default function BioPage() {
   const [world] = UseFetch(data?.homeworld, data)
   const [starShips] = UseFetch(data?.starships, data)
 
-  const { birth_year, gender, height, eye_color, mass, name } = data || {}
+  const { birth_year, gender, height, eye_color, mass, name } = data ?? {}
   const [theme] = useContext(UseThemeContext())
   return (
     <div className={`${styles["bio-container"]} ${styles[theme]}`}>
