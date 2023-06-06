@@ -14,7 +14,6 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 20px;
   padding: 30px;
   animation: fadeIn ease 2s forwards;
   opacity: 0;
