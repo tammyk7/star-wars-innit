@@ -10,7 +10,7 @@ export default function HomePage() {
   const [page, setPage] = useState(1)
   const navigate = useNavigate()
   const [theme] = useContext(UseThemeContext())
-  const [data, loading, error] = UseFetch(
+  const [data, loading] = UseFetch(
     "https://swapi.dev/api/people/?page=" + page,
     page
   )

@@ -1,5 +1,5 @@
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace"
-import React, { useState } from "react"
+import React from "react"
 
 enum Themes {
   LIGHT = "light",
@@ -18,7 +18,7 @@ export default function ThemeProvider({
 }: {
   children: ReactJSXElement
 }) {
-  const [theme, setTheme] = useState(Themes.LIGHT)
+  const [theme, setTheme] = React.useState(Themes.LIGHT)
   const toggleTheme = () =>
     theme === Themes.LIGHT ? setTheme(Themes.DARK) : setTheme(Themes.LIGHT)
 

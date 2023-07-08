@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 
 export default function UseFetch(url: string, ...dependencies: any[]) {
-  const [data, setData] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<any>(null)
+  const [data, setData] = React.useState<any>(null)
+  const [loading, setLoading] = React.useState(true)
+  const [error, setError] = React.useState<any>(null)
 
-  useEffect(() => {
+  React.useEffect(() => {
     setLoading(true)
     const grabData = async () => {
       try {
