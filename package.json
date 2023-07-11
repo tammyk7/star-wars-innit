@@ -6,7 +6,7 @@
   "homepage": "http://tammyk7.github.io/star-wars-innit",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=/star-wars-innit",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
