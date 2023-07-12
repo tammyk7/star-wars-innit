@@ -94,9 +94,9 @@ function App() {
         <RiUserHeartFill className={"icon favourite"} />
       </header>
       <Routes>
-        <Route path='/star-wars-innit' element={<HomePage />} />
-        <Route path='/star-wars-innit/bio/:id' element={<BioPage />} />
-        <Route path='/star-wars-innit/search' element={<BioPage />} />
+        <Route path='/' element={<HomePage />} />
+        <Route path='/bio/:id' element={<BioPage />} />
+        <Route path='/search' element={<BioPage />} />
       </Routes>
     </div>
   )
