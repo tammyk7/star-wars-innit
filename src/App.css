@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: 'STARWARS';
-  src: url('/star-wars-innit/src/assets/STARWARS.ttf') format('truetype');
+  src: url('/STARWARS.ttf') format('truetype');
 }
 
 :root {
