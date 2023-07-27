@@ -47,7 +47,7 @@ function App() {
             <h1 className='title'>Star Wars Innit</h1>
           </Link>
 
-          <div className='search-container'>
+          <form className='search-container' onSubmit={handleSearch}>
             <input
               className='search-bar'
               type='text'
@@ -55,11 +55,7 @@ function App() {
               value={userInput}
               onChange={handleInput}
             />
-            <button
-              placeholder='Search'
-              className='search-button'
-              onClick={handleSearch}
-            >
+            <button className='search-button' type='submit'>
               Search
             </button>
 
@@ -73,8 +69,8 @@ function App() {
                 <Alert
                   severity='info'
                   sx={{
-                    width: "300px",
-                    height: "120px",
+                    width: "270px",
+                    height: "70px",
                     alignItems: "center",
                     justifyContent: "center",
                     fontSize: "20px",
@@ -88,7 +84,7 @@ function App() {
                 </Alert>
               </Snackbar>
             )}
-          </div>
+          </form>
         </div>
         <GiLightSabers onClick={() => toggleTheme()} className={"icon"} />
         <RiUserHeartFill className={"icon favourite"} />

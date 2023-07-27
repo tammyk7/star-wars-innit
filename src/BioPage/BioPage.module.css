@@ -8,6 +8,7 @@
 
 .bio {
   width: 50%;
+  gap:25px;
   background-color: #c5baaf;
   color: var(--dark--theme--text);
   border-radius: 20px;
