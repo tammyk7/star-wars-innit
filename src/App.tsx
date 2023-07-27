@@ -1,5 +1,5 @@
 import { Alert, Snackbar } from "@mui/material"
-import { useContext, useState } from "react"
+import { FormEvent, FormEventHandler, useContext, useState } from "react"
 import { GiLightSabers, GiStarfighter } from "react-icons/gi"
 import { RiUserHeartFill } from "react-icons/ri"
 import { Link, Route, Routes, useNavigate } from "react-router-dom"
@@ -20,7 +20,9 @@ function App() {
 
   const handleInput = (e: any) => setUserInput(e.target.value)
 
-  const handleSearch = async () => {
+  const handleSearch = async (e: FormEvent) => {
+    console.log(e)
+    e.preventDefault()
     if (!userInput) {
       return
     }
