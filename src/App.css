@@ -1,12 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 @import "./assets/variables.css";
 * {
   transition: color ease 1s, background-color ease 1s;
+  font-family: 'STARWARS', sans-serif;
+}
+
+@font-face {
+  font-family: 'STARWARS';
+  src: url('/star-wars-innit/src/assets/STARWARS.ttf') format('truetype');
 }
 
 :root {
-  font-family: "Space Mono", Arial, Helvetica, sans-serif;
-  font-weight: 400;
+  /* font-weight: 400; */
   color: var(--light--theme--text);
   background-color: var(--light--theme--bg);
   width: 100%;
